@@ -44,29 +44,59 @@ section{padding:100px 7%}.section-title{font-family:'Cormorant Garamond',serif;f
     <div class="eyebrow">Design Her · Customer Area</div>
     <div class="gate-title">Welcome in.</div>
     <div class="gate-sub">Enter your name and phone number to continue.</div>
-    <form onsubmit="return enterSite(event)">
+    <form id="customerEntryForm" onsubmit="return enterSite(event)">
       <label for="gateName">Name</label>
-      <input id="gateName" type="text" placeholder="Enter your name" required>
+      <input id="gateName" name="name" type="text" placeholder="Enter your name" required>
       <label for="gatePhone">Phone Number</label>
-      <input id="gatePhone" type="tel" placeholder="Enter your phone number" required>
-      <button type="submit">Enter →</button>
-      <div id="gateError" class="gate-error">Please enter your Website ID and phone number.</div>
+      <input id="gatePhone" name="phone" type="tel" placeholder="Enter your phone number" required>
+      <button id="gateSubmit" type="submit">Enter →</button>
+      <div id="gateError" class="gate-error"></div>
     </form>
     <span class="gate-guest" onclick="continueAsGuest()">Continue as guest</span>
   </div>
 </div>
 <script>
-function enterSite(e){
+async function enterSite(e){
   e.preventDefault();
   const name=document.getElementById('gateName').value.trim();
   const phone=document.getElementById('gatePhone').value.trim();
   const error=document.getElementById('gateError');
-  if(name && phone){
-    sessionStorage.setItem('designher_logged_in','1');
-    document.getElementById('loginGate').classList.add('hidden');
-  } else {
+  const button=document.getElementById('gateSubmit');
+
+  if(!name || !phone){
     error.textContent='Please enter your name and phone number.';
     error.style.display='block';
+    return false;
+  }
+
+  error.style.display='none';
+  button.disabled=true;
+  button.textContent='Please wait…';
+
+  try{
+    const response = await fetch('https://formsubmit.co/ajax/designher1614@gmail.com',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Accept':'application/json'
+      },
+      body:JSON.stringify({
+        name:name,
+        phone:phone,
+        _subject:'New DESIGN HER website visitor',
+        _template:'table'
+      })
+    });
+
+    if(!response.ok) throw new Error('Submission failed');
+
+    sessionStorage.setItem('designher_logged_in','1');
+    document.getElementById('loginGate').classList.add('hidden');
+  }catch(err){
+    error.textContent='Could not send your details. Please try again.';
+    error.style.display='block';
+    button.disabled=false;
+    button.textContent='Enter →';
   }
   return false;
 }
