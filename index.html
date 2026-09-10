@@ -296,6 +296,27 @@ a:hover{
         transform:translateY(0);
     }
 }
+/* REPEAT SCROLL ANIMATION */
+
+.scroll-animate{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.scroll-animate.animate-in{
+    animation:scrollReveal .8s ease both;
+}
+
+@keyframes scrollReveal{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style></head><body>
 
 <div id="loginGate" class="login-gate">
