@@ -124,7 +124,43 @@ section{padding:100px 7%}.section-title{font-family:'Cormorant Garamond',serif;f
   .portfolio .project img {
     height: 240px;
   }
+/* FINAL PORTFOLIO SIZE FIX */
+.portfolio-grid {
+  align-items: stretch;
 }
+
+.portfolio .project {
+  height: 380px !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.portfolio .project img {
+  width: 100% !important;
+  height: 180px !important;
+  min-height: 180px !important;
+  max-height: 180px !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.portfolio .project-content {
+  height: 200px !important;
+  min-height: 200px !important;
+  padding: 16px !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.portfolio .project-content h3 {
+  margin: 6px 0 8px;
+}
+
+.portfolio .project-content p {
+  margin: 0;
+  line-height: 1.5;
+}}
 </style></head><body>
 
 <div id="loginGate" class="login-gate">
