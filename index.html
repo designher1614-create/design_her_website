@@ -147,21 +147,96 @@ section{padding:100px 7%}.section-title{font-family:'Cormorant Garamond',serif;f
 
 .portfolio .project-content {
   height: 200px !important;
-  min-height: 200px !important;
-  padding: 16px !important;
-  box-sizing: border-box;
-  overflow: hidden;
+/* Portfolio Animation + Uniform Portfolio */
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
 }
 
-.portfolio .project-content h3 {
-  margin: 6px 0 8px;
+.portfolio .project{
+  display:flex;
+  flex-direction:column;
+  height:380px;
+  overflow:hidden;
+  border-radius:8px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease,transform .8s ease,box-shadow .35s ease;
 }
 
-.portfolio .project-content p {
-  margin: 0;
-  line-height: 1.5;
-}}
-</style></head><body>
+.portfolio .project.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.portfolio .project:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.portfolio .project img{
+  width:100%;
+  height:180px;
+  min-height:180px;
+  max-height:180px;
+  object-fit:contain;
+  display:block;
+  background:#fff;
+}
+
+.portfolio .project-content{
+  flex:1;
+  height:200px;
+  min-height:200px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+
+.portfolio .project-content .eyebrow{
+  margin-bottom:8px;
+}
+
+.portfolio .project-content h3{
+  margin:0 0 10px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+}
+
+.portfolio .project-content p{
+  margin:0;
+  line-height:1.5;
+}
+
+@keyframes portfolioFade{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:700px){
+  .portfolio-grid{
+    grid-template-columns:1fr;
+  }
+
+  .portfolio .project{
+    height:380px;
+  }
+
+  .portfolio .project img{
+    height:180px;
+    min-height:180px;
+    max-height:180px;
+  }
+</head><body>
 
 <div id="loginGate" class="login-gate">
   <div class="gate-box">
