@@ -534,28 +534,34 @@ portfolioProjects.forEach(project => {
   portfolioObserver.observe(project);
 });
 </script>
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const animatedItems = document.querySelectorAll(
-        "section, .project, .service, .card"
+        "section, .service, .project, .hero-copy, .hero-art, .contact, footer"
     );
-
-    animatedItems.forEach(item => {
-        item.style.opacity = "0";
-        item.style.transform = "translateY(40px)";
-        item.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-    });
 
     const observer = new IntersectionObserver((entries) => {
 
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            } else {
-                entry.target.style.transform = "translateY(40px)";
+
+                entry.target.animate(
+                    [
+                        {
+                            transform: "translateY(35px)"
+                        },
+                        {
+                            transform: "translateY(0)"
+                        }
+                    ],
+                    {
+                        duration: 700,
+                        easing: "ease-out"
+                    }
+                );
+
             }
 
         });
@@ -569,5 +575,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-  </script>
+ </script>
 </body></html>
