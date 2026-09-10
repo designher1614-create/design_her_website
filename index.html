@@ -48,15 +48,18 @@ section{padding:100px 7%}.section-title{font-family:'Cormorant Garamond',serif;f
 .portfolio .project {
   opacity: 0;
   transform: translateY(30px);
-  animation: portfolioFade 0.8s ease forwards;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.35s ease;
 }
 
-.portfolio .project:nth-child(1) { animation-delay: 0.1s; }
-.portfolio .project:nth-child(2) { animation-delay: 0.25s; }
-.portfolio .project:nth-child(3) { animation-delay: 0.4s; }
-.portfolio .project:nth-child(4) { animation-delay: 0.55s; }
-.portfolio .project:nth-child(5) { animation-delay: 0.7s; }
+.portfolio .project.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio .project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
 
 .portfolio .project:hover {
   transform: translateY(-8px);
