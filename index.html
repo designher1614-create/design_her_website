@@ -217,6 +217,85 @@ section{padding:100px 7%}.section-title{font-family:'Cormorant Garamond',serif;f
     grid-template-columns:1fr;
   }
 }
+  /* WHOLE WEBSITE ANIMATION */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    animation: pageFade 1s ease both;
+}
+
+section{
+    animation: sectionReveal 1s ease both;
+}
+
+h1,h2,h3{
+    animation: textReveal 1s ease both;
+}
+
+img{
+    transition: transform .5s ease, opacity .5s ease;
+}
+
+img:hover{
+    transform:scale(1.03);
+}
+
+button,
+a{
+    transition:transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+}
+
+button:hover,
+a:hover{
+    transform:translateY(-3px);
+}
+
+.project,
+.service,
+.card{
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.project:hover,
+.service:hover,
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+}
+
+@keyframes pageFade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes sectionReveal{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes textReveal{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style></head><body>
 
 <div id="loginGate" class="login-gate">
