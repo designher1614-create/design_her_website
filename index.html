@@ -395,6 +395,39 @@ a:hover{
     .shop-grid{
         grid-template-columns:1fr;
     }
+}/* MOBILE PORTRAIT MENU ONLY */
+
+.menu-toggle{
+    display:none;
+}
+
+@media (max-width:700px) and (orientation:portrait){
+
+    .menu-toggle{
+        display:block;
+        background:none;
+        border:0;
+        font-size:28px;
+        cursor:pointer;
+        margin-left:auto;
+    }
+
+    nav{
+        flex-wrap:wrap;
+    }
+
+    .navlinks{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        text-align:center;
+        gap:14px;
+        padding:18px 0;
+    }
+
+    .navlinks.open{
+        display:flex;
+    }
 }
 </style></head><body>
 
