@@ -702,6 +702,29 @@ Tell us what you need and we’ll get back to you with the next steps.
 <a class="btn" href="https://wa.me/916379268578">Chat on WhatsApp →</a><br><a class="social" href="https://instagram.com/designher.official" target="_blank">@designher.official</a></section>
 <footer>© 2026 Design Her Creative Studio · Your Idea. Our Design.</footer>
 <script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("orderName").value;
+    const phone = document.getElementById("orderPhone").value;
+    const service = document.getElementById("orderService").value;
+    const details = document.getElementById("orderDetails").value;
+    const deadline = document.getElementById("orderDeadline").value;
+
+    const message =
+        "✨ NEW DESIGN ORDER ✨%0A%0A" +
+        "Name: " + name + "%0A" +
+        "WhatsApp: " + phone + "%0A" +
+        "Service: " + service + "%0A" +
+        "Requirements: " + details + "%0A" +
+        "Deadline: " + deadline;
+
+    window.open(
+        "https://wa.me/916379268578?text=" + message,
+        "_blank"
+    );
+});
+</script><script>
 const portfolioProjects = document.querySelectorAll('.portfolio .project');
 
 const portfolioObserver = new IntersectionObserver((entries) => {
