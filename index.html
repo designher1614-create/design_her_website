@@ -326,6 +326,75 @@ a:hover{
     height:auto !important;
     min-height:200px;
     overflow:visible !important;
+}/* DESIGN HER — CUSTOM SHOP */
+
+.shop{
+    background:#f2e4e4;
+    padding:90px 6%;
+}
+
+.shop .intro{
+    max-width:650px;
+    color:var(--muted);
+    margin-bottom:45px;
+}
+
+.shop-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.shop-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:30px;
+    min-height:280px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    transition:transform .4s ease,box-shadow .4s ease;
+}
+
+.shop-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+.shop-card .eyebrow{
+    margin-bottom:14px;
+}
+
+.shop-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin:0 0 12px;
+}
+
+.shop-card p{
+    color:var(--muted);
+    line-height:1.6;
+    margin:0 0 20px;
+}
+
+.shop-card strong{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.shop-card .btn{
+    align-self:flex-start;
+    margin-top:auto;
+}
+
+@media(max-width:700px){
+    .shop{
+        padding:70px 6%;
+    }
+
+    .shop-grid{
+        grid-template-columns:1fr;
+    }
 }
 </style></head><body>
 
